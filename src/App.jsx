@@ -1,7 +1,11 @@
+import GameBoard from "./components/Board/GameBoard";
+
 function App() {
 
   return (
-    <div className="bg-black text-red-800">hihihihi</div>
+    <main className="w-[100vw] h-[100vh] flex justify-center items-center">
+      <GameBoard />
+    </main>
   )
 }
 
