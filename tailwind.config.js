@@ -34,8 +34,8 @@ export default {
         }
       },
       animation: {
-        hflipForward: "flipHorizontal 1s forwards",
-        hflipReverse: "flipHorizontalReverse 1s forwards",
+        hflipForward: "flipHorizontal 0.7s forwards",
+        hflipReverse: "flipHorizontalReverse 0.7s forwards",
       },
     },
   },

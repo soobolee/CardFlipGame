@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BackCard from "../Card/BackCard";
 import FrontCard from "../Card/FrontCard";
 
-export default function CardBoard({ cardValue, clickedCardArray, changeClickedCardArray }) {
+export default function CardBoard({ cardValue, clickedCardArray, changeClickedCardArray, isClickAble, setIsClickAble }) {
   const [isFlip, setIsFlip] = useState(true);
 
   useEffect(() => {
@@ -12,6 +12,10 @@ export default function CardBoard({ cardValue, clickedCardArray, changeClickedCa
   }, [])
 
   const handleClickCard = () => {
+    if (!isClickAble) {
+      return;
+    }
+
     const cardArray = [...clickedCardArray, {
       cardValue,
       setIsFlip,
@@ -31,10 +35,12 @@ export default function CardBoard({ cardValue, clickedCardArray, changeClickedCa
         cardArray[0].setIsFlip(true);
         cardArray[1].setIsFlip(true);
       } else {
+        setIsClickAble(false);
         setTimeout(() => {
           cardArray[0].setIsFlip(false);
           cardArray[1].setIsFlip(false);
-        }, 1000);
+          setIsClickAble(true);
+        }, 700);
       }
 
       changeClickedCardArray([]);
@@ -48,10 +54,10 @@ export default function CardBoard({ cardValue, clickedCardArray, changeClickedCa
     >
       <div
         className={`${isFlip && "animate-hflipForward"} w-full h-full preserve-3d`}>
-        <FrontCard
-          cardValue={cardValue}
-        />
-        <BackCard />
+          <FrontCard
+            cardValue={cardValue}
+          />
+          <BackCard />
       </div>
     </div>
   )
