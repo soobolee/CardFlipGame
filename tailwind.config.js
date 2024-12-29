@@ -26,17 +26,16 @@ export default {
   theme: {
     extend: {
       keyframes: {
-        flipHorizontalCorrect: {
+        flipHorizontal: {
           '100%': { transform: 'rotateY(180deg)' },
         },
-        flipHorizontalWrong: {
-          '50%': { transform: 'rotateY(180deg)' },
-          '50%': { transform: 'rotateY(180deg)' },
+        flipHorizontalReverse: {
+          '100%': { transform: 'rotateY(-180deg)' },
         }
       },
       animation: {
-        hflipCorrect: "flipHorizontalCorrect 2s forwards",
-        hflipWrong: "flipHorizontalWrong 4s forwards",
+        hflipForward: "flipHorizontal 1s forwards",
+        hflipReverse: "flipHorizontalReverse 1s forwards",
       },
     },
   },
